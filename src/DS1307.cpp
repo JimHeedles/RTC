@@ -629,7 +629,7 @@ void NVRAM::read(uint8_t address, uint8_t* buf, uint8_t size)
 	Wire.beginTransmission(DS1307_ADDR);
 	Wire.write(addrByte);
 	Wire.endTransmission();
-	Wire.requestFrom(DS1307_ADDR, 9);
+	Wire.requestFrom(DS1307_ADDR, size);
 	for (uint8_t pos = 0; pos < size; ++pos)
 	{
 		buf[pos] = Wire.read();
